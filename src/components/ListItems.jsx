@@ -3,7 +3,7 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
 import { RiGraduationCapFill } from "react-icons/ri";
@@ -22,6 +22,7 @@ import { IoMdUnlock } from "react-icons/io";
 import { MdOutlineTune } from "react-icons/md";
 import { FaFolder } from "react-icons/fa";
 import { MdDashboard } from "react-icons/md";
+// import Login from "../pages/Login";
 // import StarBorder from "@mui/icons-material/StarBorder";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 const ListItems = () => {
@@ -90,33 +91,61 @@ const ListItems = () => {
             <FaRegUser className="text-xl text-gray-400" />
           </ListItemIcon>
           <ListItemText primary="Accounts" className="text-gray-300" />
-          {open ? <ExpandLess /> : <ExpandMore />}
+          {openA ? <ExpandLess /> : <ExpandMore />}
         </ListItemButton>
         <Collapse in={openA} timeout="auto" unmountOnExit>
-          <List component="div" disablePadding className="text-gray-300">
-            <ListItemButton
-              sx={{
-                pl: 4,
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "start",
-              }}
-            >
+          <List
+            component="div"
+            disablePadding
+            className="text-gray-300"
+            sx={{
+              pl: 4,
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "start",
+              cursor: "pointer",
+            }}
+          >
+            {" "}
+            <Link to="/login">
               <ListItemText primary="Login" />
+            </Link>
+            <Link to="/signup">
               <ListItemText primary="Sign Up" />
+            </Link>
+            <Link to="/forgetpassword">
               <ListItemText primary="Forget Password" />
+            </Link>
+            <Link to="/editaccount">
               <ListItemText primary="Edit Account" />
+            </Link>
+            <Link to="/basicinfo">
               <ListItemText primary="Basic Information" />
+            </Link>
+            <Link to="/profileandprivacy">
               <ListItemText primary="Profile & Privacy" />
+            </Link>
+            <Link to="/subcription">
               <ListItemText primary="Subcription" />
+            </Link>
+            <Link to="/upgradeaccount">
               <ListItemText primary="Upgrade Account" />
+            </Link>
+            <Link to="/payinfo">
               <ListItemText primary="Payment Information" />
-              <ListItemText primary="Payment Information" />
+            </Link>
+            <Link to="/payhistory">
               <ListItemText primary="Payment History" />
+            </Link>
+            <Link to="/studentinvoice">
               <ListItemText primary="Student Invoice" />
+            </Link>
+            <Link to="/instructioninvoice">
               <ListItemText primary="Instructor Invoice" />
+            </Link>
+            <Link to="/editinvoice">
               <ListItemText primary="Edit Invoice" />
-            </ListItemButton>
+            </Link>
           </List>
         </Collapse>
 
@@ -125,21 +154,26 @@ const ListItems = () => {
             <MdOutlineMessage className="text-xl text-gray-400" />
           </ListItemIcon>
           <ListItemText primary="Messages" className="text-gray-300" />
-          {open ? <ExpandLess /> : <ExpandMore />}
+          {openM ? <ExpandLess /> : <ExpandMore />}
         </ListItemButton>
         <Collapse in={openM} timeout="auto" unmountOnExit>
-          <List component="div" disablePadding className="text-gray-300">
-            <ListItemButton
-              sx={{
-                pl: 4,
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "start",
-              }}
-            >
+          <List
+            component="div"
+            disablePadding
+            className="text-gray-300 cursor-pointer"
+            sx={{
+              pl: 4,
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "start",
+            }}
+          >
+            <Link to="/conversation">
               <ListItemText primary="Conversation" />
+            </Link>
+            <Link to="/conversation2">
               <ListItemText primary="Conversation-2" />
-            </ListItemButton>
+            </Link>
           </List>
         </Collapse>
       </Box>
