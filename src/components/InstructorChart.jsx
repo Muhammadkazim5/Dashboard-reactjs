@@ -9,7 +9,7 @@ const InstructorChart = () => {
   return (
     <div>
       <BarChart
-        width={500}
+        width={300}
         height={300}
         series={[
           { data: pData, label: "pv", id: "pvId" },

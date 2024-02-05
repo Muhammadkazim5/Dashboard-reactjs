@@ -162,13 +162,14 @@ const Sidebar = () => {
         </Toolbar>
       </AppBar>
       <Drawer
+        className="mt-4"
         sx={{
           width: drawerWidth,
           flexShrink: 0,
           "& .MuiDrawer-paper": {
             width: drawerWidth,
             boxSizing: "border-box",
-            marginTop: 8,
+            marginTop: 7.5,
             background: "#39444d;",
             color: "#fff",
           },

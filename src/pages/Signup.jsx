@@ -4,6 +4,7 @@ import { FaGoogle } from "react-icons/fa6";
 import { FaRegEnvelope } from "react-icons/fa";
 import { CiUser } from "react-icons/ci";
 import Checkbox from "@mui/material/Checkbox";
+import Buttons from "../components/Buttons";
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
 const Signup = () => {
   return (
@@ -93,9 +94,8 @@ const Signup = () => {
                     required=""
                   />
                 </div>
-                <button className="w-full rounded bg-sky-500 py-2 text-white">
-                  Login
-                </button>
+                <Buttons name="Sign Up" />
+
                 <div className="flex justify-center flex-col items-center py-2">
                   <div className="flex gap-1 text-sm items-center">
                     <Checkbox {...label} defaultChecked />I agree to the{" "}
@@ -103,7 +103,7 @@ const Signup = () => {
                   </div>
                   <div className="flex  py-4 items-center ">
                     <p className="text-sm">Already Sign Up?</p>
-                    <span className="text-blue-400 text-lg">Login</span>
+                    <span className="text-blue text-lg">Login</span>
                   </div>
                 </div>
               </form>

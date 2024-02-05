@@ -20,6 +20,8 @@ import PayHistory from "./pages/PayHistory";
 import StudentInvoice from "./pages/StudentInvoice";
 import EditInvoice from "./pages/EditInvoice";
 import UpgradeAccount from "./pages/UpgradeAccount";
+import BrowseCourse from "./pages/BrowseCourse";
+import ViewCourse from "./pages/ViewCourse";
 
 function App() {
   return (
@@ -43,6 +45,8 @@ function App() {
         <Route path="/studentinvoice" element={<StudentInvoice />} />
         <Route path="/editinvoice" element={<EditInvoice />} />
         <Route path="/upgradeaccount" element={<UpgradeAccount />} />
+        <Route path="/browsecourse" element={<BrowseCourse />} />
+        <Route path="/viewcourse" element={<ViewCourse />} />
       </Routes>
     </BrowserRouter>
   );
