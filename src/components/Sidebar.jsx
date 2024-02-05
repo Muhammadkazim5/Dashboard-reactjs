@@ -25,6 +25,7 @@ import { useNavigate } from "react-router-dom";
 import ListItems from "./ListItems";
 // import Student from "../pages/Student";
 // import Instructor from "../pages/Instructor";
+import Switch from "@mui/material/Switch";
 
 const drawerWidth = 240;
 const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
@@ -79,7 +80,8 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
     padding: "0 4px",
   },
 }));
-const Sidebar = () => {
+const label = { inputProps: { "aria-label": "Switch demo" } };
+const Sidebar = ({ check, change }) => {
   const navigate = useNavigate();
   const theme = useTheme();
   const [open, setOpen] = React.useState(true);
@@ -125,6 +127,7 @@ const Sidebar = () => {
           <Box
             sx={{ display: { xs: "none", md: "flex" }, alignItems: "center" }}
           >
+            <Switch {...label} checked={check} onChange={change} />
             <Typography variant="p">Forum</Typography>
             <Typography variant="p" sx={{ paddingLeft: 2 }}>
               Get Help

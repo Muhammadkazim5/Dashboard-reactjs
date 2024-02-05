@@ -26,7 +26,6 @@ import ViewCourse from "./pages/ViewCourse";
 function App() {
   return (
     <BrowserRouter>
-      {/* <Sidebar /> */}
       <Routes>
         <Route path="/" element={<Dashboard />} />
         <Route path="/student" element={<Student />} />
