@@ -50,7 +50,7 @@ const RedarCharts = () => {
 
   return (
     <div>
-      <RadarChart outerRadius={90} height={250} data={data} width={300}>
+      <RadarChart outerRadius={90} height={250} data={data} width={250}>
         <PolarGrid />
         <PolarAngleAxis dataKey="subject" />
         <PolarRadiusAxis angle={30} domain={[0, 150]} />

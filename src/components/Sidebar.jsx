@@ -7,26 +7,17 @@ import MuiAppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import List from "@mui/material/List";
 import Typography from "@mui/material/Typography";
-// import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-
-// import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
-// import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-
 import Inputs from "./Inputs";
 import AccountCircle from "@mui/icons-material/AccountCircle";
-// import MailIcon from "@mui/icons-material/Mail";
 import NotificationsIcon from "@mui/icons-material/Notifications";
-// import InboxIcon from "@mui/icons-material/Inbox";
 import { Badge } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import ListItems from "./ListItems";
-// import Student from "../pages/Student";
-// import Instructor from "../pages/Instructor";
 import Switch from "@mui/material/Switch";
-
+import ClickAwayListener from "@mui/material/ClickAwayListener";
 const drawerWidth = 240;
 const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
   ({ theme, open }) => ({
@@ -96,13 +87,18 @@ const Sidebar = ({ check, change }) => {
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
-      <AppBar position="fixed" open={open} sx={{ width: "100%" }}>
+      <AppBar
+        position="fixed"
+        open={open}
+        sx={{ width: "100%" }}
+        className="px-5 md:px-2"
+      >
         <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
           <Box sx={{ display: "flex", alignItems: "center" }}>
             <IconButton
               color="inherit"
               aria-label="open drawer"
-              onClick={() => setOpen(!open)}
+              onClick={() => handleDrawerOpen()}
               edge="start"
               // sx={{ mr: 2, ...(open && { display: "none" }) }}
             >
@@ -118,7 +114,7 @@ const Sidebar = ({ check, change }) => {
               onClick={() => {
                 navigate("/");
               }}
-              className="cursor-pointer ps-4"
+              className="cursor-pointer px-4"
             >
               LearnPlus
             </Typography>
@@ -164,38 +160,34 @@ const Sidebar = ({ check, change }) => {
           </Box>
         </Toolbar>
       </AppBar>
-      <Drawer
-        className="mt-4"
-        sx={{
-          width: drawerWidth,
-          flexShrink: 0,
-          "& .MuiDrawer-paper": {
-            width: drawerWidth,
-            boxSizing: "border-box",
-            marginTop: 7.5,
-            background: "#39444d;",
-            color: "#fff",
-          },
-        }}
-        variant="persistent"
-        anchor="left"
+      <ClickAwayListener
+        onClickAway={() => open && handleDrawerClose()}
+        mouseEvent="onMouseDown"
+        touchEvent="onTouchStart"
         open={open}
       >
-        {/* <DrawerHeader>
-          <IconButton onClick={handleDrawerClose}>
-            {theme.direction === "ltr" ? (
-              <ChevronLeftIcon />
-            ) : (
-              <ChevronRightIcon />
-            )}
-          </IconButton>
-        </DrawerHeader> */}
-        {/* <Divider /> */}
-
-        <List>
-          <ListItems />
-        </List>
-      </Drawer>
+        <Drawer
+          className="mt-4"
+          sx={{
+            width: drawerWidth,
+            flexShrink: 0,
+            "& .MuiDrawer-paper": {
+              width: drawerWidth,
+              boxSizing: "border-box",
+              marginTop: 7.5,
+              background: "#39444d;",
+              color: "#fff",
+            },
+          }}
+          variant="persistent"
+          anchor="left"
+          open={open}
+        >
+          <List>
+            <ListItems />
+          </List>
+        </Drawer>
+      </ClickAwayListener>
       <Main open={open}>
         <DrawerHeader />
       </Main>

@@ -49,7 +49,7 @@ const MainContent = () => {
         <CssBaseline />
         <div className="flex">
           <Sidebar change={() => setDarkMode(!darkMode)} check={darkMode} />
-          <div className="flex-grow mt-24 pr-10">
+          <div className="flex-grow mt-24 pr-14">
             <Box className="container">
               <div className="flex gap-2 pb-5">
                 <p className="text-blue">Home</p>
